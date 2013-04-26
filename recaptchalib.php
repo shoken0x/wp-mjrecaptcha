@@ -36,8 +36,8 @@
 /**
  * The MJ-reCAPTCHA server URL's
  */
-define("RECAPTCHA_API_SERVER", "http://mjrecaptcha.com/");
-define("RECAPTCHA_API_SECURE_SERVER", "https://mjrecaptcha.com/");
+define("RECAPTCHA_API_SERVER", "http://mjrecaptcha.com");
+define("RECAPTCHA_API_SECURE_SERVER", "https://mjrecaptcha.com");
 define("RECAPTCHA_VERIFY_SERVER", "mjrecaptcha.com");
 
 /**
@@ -65,7 +65,8 @@ function _recaptcha_qsencode ($data) {
  * @param int port
  * @return array response
  */
-function _recaptcha_http_post($host, $path, $data, $port = 80) {
+#function _recaptcha_http_post($host, $path, $data, $port = 80) {
+function _recaptcha_http_post($host, $path, $data, $port = 3000) {
 
         $req = _recaptcha_qsencode ($data);
 
@@ -120,16 +121,17 @@ function recaptcha_get_html ($pubkey, $error = null, $use_ssl = false)
         if ($error) {
            $errorpart = "&amp;error=" . $error;
         }
-        /*
+
         return '
           <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
           <script type="text/javascript" src="'. $server . '/recaptcha.js?k=' . $pubkey . $errorpart . '"></script>';
-        */
+
+        /*
         return 'mock-up text area 
           <img src="https://raw.github.com/mjlife/mj_tsumotter/master/client/src/common/www/img/pai/j1t.gif" /> 
           <img src="https://raw.github.com/mjlife/mj_tsumotter/master/client/src/common/www/img/pai/m1t.gif" /> 
           <textarea name="recaptcha_challenge_field" rows="1" cols="10"></textarea>';
-
+        */
         ## TODO: for not enable javascript
         /*
 	<noscript>
@@ -174,12 +176,14 @@ function recaptcha_check_answer ($privkey, $remoteip, $challenge, $response, $ex
 	
 	
         //discard spam submissions
+        /* 
         if ($challenge == null || strlen($challenge) == 0 || $response == null || strlen($response) == 0) {
                 $recaptcha_response = new ReCaptchaResponse();
                 $recaptcha_response->is_valid = false;
                 $recaptcha_response->error = 'incorrect-captcha-sol';
                 return $recaptcha_response;
         }
+        */
 
         $response = _recaptcha_http_post (RECAPTCHA_VERIFY_SERVER, "/challenges/verify",
                                           array (
