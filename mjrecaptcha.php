@@ -39,7 +39,7 @@ if (!class_exists('reCAPTCHA')) {
                 add_action('login_head', array(&$this, 'registration_style')); // make unnecessary: instead use jQuery and add to the footer?
 
             // options
-            register_activation_hook(WPPlugin::path_to_plugin_directory() . '/wp-recaptcha.php', array(&$this, 'register_default_options')); // this way it only happens once, when the plugin is activated
+            register_activation_hook(WPPlugin::path_to_plugin_directory() . '/wp-mjrecaptcha.php', array(&$this, 'register_default_options')); // this way it only happens once, when the plugin is activated
             add_action('admin_init', array(&$this, 'register_settings_group'));
 
             // only register the hooks if the user wants recaptcha on the registration page
@@ -201,8 +201,8 @@ REGISTRATION;
         }
         
         function create_error_notice($message, $anchor = '') {
-            $options_url = admin_url('options-general.php?page=wp-recaptcha/recaptcha.php') . $anchor;
-            $error_message = sprintf(__($message . ' <a href="%s" title="WP-reCAPTCHA Options">Fix this</a>', 'recaptcha'), $options_url);
+            $options_url = admin_url('options-general.php?page=wp-mjrecaptcha/mjrecaptcha.php') . $anchor;
+            $error_message = sprintf(__($message . ' <a href="%s" title="WP-MJreCAPTCHA Options">Fix this</a>', 'mjrecaptcha'), $options_url);
             
             echo '<div class="error"><p><strong>' . $error_message . '</strong></p></div>';
         }
@@ -512,10 +512,10 @@ JS;
         
         // add a settings link to the plugin in the plugin list
         function show_settings_link($links, $file) {
-            if ($file == plugin_basename($this->path_to_plugin_directory() . '/wp-recaptcha.php')) {
-               $settings_title = __('Settings for this Plugin', 'recaptcha');
-               $settings = __('Settings', 'recaptcha');
-               $settings_link = '<a href="options-general.php?page=wp-recaptcha/recaptcha.php" title="' . $settings_title . '">' . $settings . '</a>';
+            if ($file == plugin_basename($this->path_to_plugin_directory() . '/wp-mjrecaptcha.php')) {
+               $settings_title = __('Settings for this Plugin', 'mjrecaptcha');
+               $settings = __('Settings', 'mjrecaptcha');
+               $settings_link = '<a href="options-general.php?page=wp-mjrecaptcha/mjrecaptcha.php" title="' . $settings_title . '">' . $settings . '</a>';
                array_unshift($links, $settings_link);
             }
             
@@ -526,14 +526,14 @@ JS;
         function add_settings_page() {
             // add the options page
             if ($this->environment == Environment::WordPressMU && $this->is_authority())
-                add_submenu_page('wpmu-admin.php', 'WP-reCAPTCHA', 'WP-reCAPTCHA', 'manage_options', __FILE__, array(&$this, 'show_settings_page'));
+                add_submenu_page('wpmu-admin.php', 'WP-MJreCAPTCHA', 'WP-MJreCAPTCHA', 'manage_options', __FILE__, array(&$this, 'show_settings_page'));
 
             /*  re-add when we figure out a way to add network-wide settings in ms
             if ($this->environment == Environment::WordPressMS && $this->is_authority())
                 add_submenu_page('ms-admin.php', 'WP-reCAPTCHA', 'WP-reCAPTCHA', 'manage_options', __FILE__, array(&$this, 'show_settings_page'));
              */
             
-            add_options_page('WP-reCAPTCHA', 'WP-reCAPTCHA', 'manage_options', __FILE__, array(&$this, 'show_settings_page'));
+            add_options_page('WP-MJreCAPTCHA', 'WP-MJreCAPTCHA', 'manage_options', __FILE__, array(&$this, 'show_settings_page'));
         }
         
         // store the xhtml in a separate file and use include on it

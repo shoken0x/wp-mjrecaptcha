@@ -7,8 +7,8 @@
 
 <div class="wrap">
    <a name="recaptcha"></a>
-   <h2><?php _e('reCAPTCHA Options', 'recaptcha'); ?></h2>
-   <p><?php _e('reCAPTCHA is a free, accessible CAPTCHA service that helps to digitize books while blocking spam on your blog.', 'recaptcha'); ?></p>
+   <h2><?php _e('MJ-reCAPTCHA Options', 'recaptcha'); ?></h2>
+   <p><?php _e('MJ-reCAPTCHA is a free, accessible CAPTCHA service that helps to digitize books while blocking spam on your blog.', 'recaptcha'); ?></p>
    
    <form method="post" action="options.php">
       <?php settings_fields('recaptcha_options_group'); ?>
@@ -129,7 +129,7 @@
          </tr>
       </table>
 
-      <p class="submit"><input type="submit" class="button-primary" title="<?php _e('Save reCAPTCHA Options') ?>" value="<?php _e('Save reCAPTCHA Changes') ?> &raquo;" /></p>
+      <p class="submit"><input type="submit" class="button-primary" title="<?php _e('Save MJ-reCAPTCHA Options') ?>" value="<?php _e('Save MJ-reCAPTCHA Changes') ?> &raquo;" /></p>
    </form>
    
    <?php do_settings_sections('recaptcha_options_page'); ?>
