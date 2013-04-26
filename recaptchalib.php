@@ -120,7 +120,11 @@ function recaptcha_get_html ($pubkey, $error = null, $use_ssl = false)
         if ($error) {
            $errorpart = "&amp;error=" . $error;
         }
-        #return '<script type="text/javascript" src="'. $server . '/recaptcha.js?k=' . $pubkey . $errorpart . '"></script>';
+        /*
+        return '
+          <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+          <script type="text/javascript" src="'. $server . '/recaptcha.js?k=' . $pubkey . $errorpart . '"></script>';
+        */
         return 'mock-up text area 
           <img src="https://raw.github.com/mjlife/mj_tsumotter/master/client/src/common/www/img/pai/j1t.gif" /> 
           <img src="https://raw.github.com/mjlife/mj_tsumotter/master/client/src/common/www/img/pai/m1t.gif" /> 
