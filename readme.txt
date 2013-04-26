@@ -11,11 +11,7 @@ Integrates MJ-reCAPTCHA anti-spam methods with WordPress including comment, regi
 
 = Notice =
 
-If anyone is interested in taking up development of this plugin, please contact me at blaenk@gmail.com. I would be glad to provide access to the plugin repository. Preferably someone who has experience with the WP and WP multisite APIs (primarily their authorization and options APIs).
-
-If you would like to simply contribute patches, you are welcome to do so at the [github repository](https://github.com/blaenk/wp-recaptcha).
-
-Otherwise, if anyone encounters issues with this plugin, you might want to give [this one](http://wordpress.org/extend/plugins/bwp-recaptcha/) a try.
+If anyone is interested in taking up development of this plugin, please contact me at syokenz at gmail.com. I would be glad to provide access to the plugin repository. Preferably someone who has experience with the WP and WP multisite APIs (primarily their authorization and options APIs).
 
 = What is reCAPTCHA? =
 
@@ -31,13 +27,13 @@ It is accessible by everyone. If the user has trouble reading the CAPTCHA challe
 
 To install in regular WordPress and [WordPress MultiSite](http://codex.wordpress.org/Create_A_Network):
 
-1. Upload the `wp-recaptcha` folder to the `/wp-content/plugins/` directory
+1. Upload the `wp-mjrecaptcha` folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the `Plugins` menu in WordPress
-1. Get the reCAPTCHA keys [here](http://recaptcha.net/api/getkey?domain=www.blaenkdenum.com&app=wordpress "reCAPTCHA API keys") and/or the MailHide keys [here](http://mailhide.recaptcha.net/apikey "MailHide keys")
+1. Get the MJ-reCAPTCHA keys [here](http://mjrecaptcha.com "MJ-reCAPTCHA API keys")
 
 == Requirements ==
 
-* You need the reCAPTCHA keys [here](http://recaptcha.net/api/getkey?domain=www.blaenkdenum.com&app=wordpress "reCAPTCHA API keys") and/or the MailHide keys [here](http://mailhide.recaptcha.net/apikey "MailHide keys")
+* You need the MJ-reCAPTCHA keys [here](http://mjrecaptcha.com "MJ-reCAPTCHA API keys")
 * If you plan on using MailHide, you will need to have the [mcrypt](http://php.net/mcrypt "mcrypt") PHP module loaded (*Most servers do*)
 * If you turn on XHTML 1.0 Compliance you and your users will need to have Javascript enabled to see and complete the reCAPTCHA form
 * Your theme must have a `do_action('comment_form', $post->ID);` call right before the end of your form (*Right before the closing form tag*). Most themes do.
