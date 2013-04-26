@@ -1,4 +1,0 @@
-wp-mjrecaptcha
-==============
-
-wp-mjrecaptcha
