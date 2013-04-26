@@ -2,16 +2,17 @@
 /*
  * This is a PHP library that handles calling reCAPTCHA.
  *    - Documentation and latest version
- *          http://recaptcha.net/plugins/php/
+ *          http://mjrecaptcha.com
  *    - Get a reCAPTCHA API Key
- *          https://www.google.com/recaptcha/admin/create
+ *          http://mjrecaptcha.com
  *    - Discussion group
- *          http://groups.google.com/group/recaptcha
+ *          http://
  *
- * Copyright (c) 2007 reCAPTCHA -- http://recaptcha.net
+ * Copyright (c) 2013 MJ-reCAPTCHA -- http://mjrecaptcha.com
  * AUTHORS:
- *   Mike Crawford
- *   Ben Maurer
+ *   Shoken Fujisaki
+ *   Ken Ogino
+ *   Tetsutaro Watanabe
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -33,11 +34,11 @@
  */
 
 /**
- * The reCAPTCHA server URL's
+ * The MJ-reCAPTCHA server URL's
  */
-define("RECAPTCHA_API_SERVER", "http://www.google.com/recaptcha/api");
-define("RECAPTCHA_API_SECURE_SERVER", "https://www.google.com/recaptcha/api");
-define("RECAPTCHA_VERIFY_SERVER", "www.google.com");
+define("RECAPTCHA_API_SERVER", "http://mjrecaptcha.com/");
+define("RECAPTCHA_API_SECURE_SERVER", "https://mjrecaptcha.com/");
+define("RECAPTCHA_VERIFY_SERVER", "mjrecaptcha.com");
 
 /**
  * Encodes the given data into a query string format
@@ -106,7 +107,7 @@ function _recaptcha_http_post($host, $path, $data, $port = 80) {
 function recaptcha_get_html ($pubkey, $error = null, $use_ssl = false)
 {
 	if ($pubkey == null || $pubkey == '') {
-		die ("To use reCAPTCHA you must get an API key from <a href='https://www.google.com/recaptcha/admin/create'>https://www.google.com/recaptcha/admin/create</a>");
+		die ("To use MJ-reCAPTCHA you must get an API key from <a href='http://mjrecaptcha.com'>https://mjrecaptcha.com</a>");
 	}
 	
 	if ($use_ssl) {
@@ -119,13 +120,20 @@ function recaptcha_get_html ($pubkey, $error = null, $use_ssl = false)
         if ($error) {
            $errorpart = "&amp;error=" . $error;
         }
-        return '<script type="text/javascript" src="'. $server . '/challenge?k=' . $pubkey . $errorpart . '"></script>
+        #return '<script type="text/javascript" src="'. $server . '/recaptcha.js?k=' . $pubkey . $errorpart . '"></script>';
+        return 'mock-up text area 
+          <img src="https://raw.github.com/mjlife/mj_tsumotter/master/client/src/common/www/img/pai/j1t.gif" /> 
+          <img src="https://raw.github.com/mjlife/mj_tsumotter/master/client/src/common/www/img/pai/m1t.gif" /> 
+          <textarea name="recaptcha_challenge_field" rows="1" cols="10"></textarea>';
 
+        ## TODO: for not enable javascript
+        /*
 	<noscript>
   		<iframe src="'. $server . '/noscript?k=' . $pubkey . $errorpart . '" height="300" width="500" frameborder="0"></iframe><br/>
   		<textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
   		<input type="hidden" name="recaptcha_response_field" value="manual_challenge"/>
-	</noscript>';
+	</noscript>
+        */
 }
 
 
@@ -152,11 +160,11 @@ class ReCaptchaResponse {
 function recaptcha_check_answer ($privkey, $remoteip, $challenge, $response, $extra_params = array())
 {
 	if ($privkey == null || $privkey == '') {
-		die ("To use reCAPTCHA you must get an API key from <a href='https://www.google.com/recaptcha/admin/create'>https://www.google.com/recaptcha/admin/create</a>");
+		die ("To use MJ-reCAPTCHA you must get an API key from <a href='http://mjrecaptcha.com'>http://mjrecaptcha.com</a>");
 	}
 
 	if ($remoteip == null || $remoteip == '') {
-		die ("For security reasons, you must pass the remote ip to reCAPTCHA");
+		die ("For security reasons, you must pass the remote ip to MJ-reCAPTCHA");
 	}
 
 	
@@ -169,7 +177,7 @@ function recaptcha_check_answer ($privkey, $remoteip, $challenge, $response, $ex
                 return $recaptcha_response;
         }
 
-        $response = _recaptcha_http_post (RECAPTCHA_VERIFY_SERVER, "/recaptcha/api/verify",
+        $response = _recaptcha_http_post (RECAPTCHA_VERIFY_SERVER, "/challenges/verify",
                                           array (
                                                  'privatekey' => $privkey,
                                                  'remoteip' => $remoteip,
@@ -199,9 +207,9 @@ function recaptcha_check_answer ($privkey, $remoteip, $challenge, $response, $ex
  * @param string $domain The domain where the page is hosted
  * @param string $appname The name of your application
  */
-function recaptcha_get_signup_url ($domain = null, $appname = null) {
-	return "https://www.google.com/recaptcha/admin/create?" .  _recaptcha_qsencode (array ('domains' => $domain, 'app' => $appname));
-}
+#function recaptcha_get_signup_url ($domain = null, $appname = null) {
+#	return "https://www.google.com/recaptcha/admin/create?" .  _recaptcha_qsencode (array ('domains' => $domain, 'app' => $appname));
+#}
 
 function _recaptcha_aes_pad($val) {
 	$block_size = 16;

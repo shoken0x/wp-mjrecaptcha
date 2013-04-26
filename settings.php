@@ -14,7 +14,7 @@
       <?php settings_fields('recaptcha_options_group'); ?>
 
       <h3><?php _e('Authentication', 'recaptcha'); ?></h3>
-      <p><?php _e('These keys are required before you are able to do anything else.', 'recaptcha'); ?> <?php _e('You can get the keys', 'recaptcha'); ?> <a href="<?php echo recaptcha_get_signup_url($this->blog_domain(), 'wordpress');?>" title="<?php _e('Get your reCAPTCHA API Keys', 'recaptcha'); ?>"><?php _e('here', 'recaptcha'); ?></a>.</p>
+      <p><?php _e('These keys are required before you are able to do anything else.', 'recaptcha'); ?> <?php _e('You can get the keys', 'recaptcha'); ?>.</p>
       <p><?php _e('Be sure not to mix them up! The public and private keys are not interchangeable!'); ?></p>
       
       <table class="form-table">
