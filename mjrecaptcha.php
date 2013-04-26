@@ -265,7 +265,7 @@ FORMAT;
 
             $comment_string = <<<COMMENT_FORM
             <script type='text/javascript'>   
-            document.getElementById('recaptcha_table').style.direction = 'ltr';
+            //document.getElementById('recaptcha_table').style.direction = 'ltr';
             </script>
 COMMENT_FORM;
 
@@ -414,7 +414,7 @@ COMMENT_FORM;
                 if ( typeof _recaptcha_wordpress_savedcomment != 'undefined') {
                         document.getElementById('comment').value = _recaptcha_wordpress_savedcomment;
                 }
-                document.getElementById('recaptcha_table').style.direction = 'ltr';
+                //document.getElementById('recaptcha_table').style.direction = 'ltr';
                 </script>
 JS;
             echo $javascript;
