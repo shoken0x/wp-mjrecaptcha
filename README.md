@@ -10,6 +10,8 @@ Integrates MJ-reCAPTCHA anti-spam methods with WordPress including comment, regi
 
 ## Description
 
+MJ-reCAPTCHA is a free CAPTCHA service that helps to analayze Mahjong pais.
+
 ## Notice
 
 If anyone is interested in taking up development of this plugin, please contact me at syokenz at gmail.com. I would be glad to provide access to the plugin repository. Preferably someone who has experience with the WP and WP multisite APIs (primarily their authorization and options APIs).
