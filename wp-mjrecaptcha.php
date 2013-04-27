@@ -16,7 +16,7 @@ define('ALLOW_INCLUDE', true);
 require_once('mjrecaptcha.php');
 #require_once('mailhide.php');
 
-$recaptcha = new reCAPTCHA('recaptcha_options');
+$recaptcha = new reCAPTCHA('mjrecaptcha_options');
 #$mailhide = new MailHide('mailhide_options');
 
 ?>

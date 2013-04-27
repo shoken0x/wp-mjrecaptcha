@@ -10,7 +10,7 @@ function uninstall_options($name) {
 }
 
 // recaptcha
-uninstall_options('recaptcha_options');
+uninstall_options('mjrecaptcha_options');
 
 // mailhide
 uninstall_options('mailhide_options');

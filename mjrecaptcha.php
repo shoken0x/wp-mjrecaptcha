@@ -82,7 +82,7 @@ if (!class_exists('reCAPTCHA')) {
         }
         
         function load_textdomain() {
-            load_plugin_textdomain('recaptcha', false, 'languages');
+            load_plugin_textdomain('mjrecaptcha', false, 'languages');
         }
         
         // set the default options
@@ -92,7 +92,7 @@ if (!class_exists('reCAPTCHA')) {
            
             $option_defaults = array();
            
-            $old_options = WPPlugin::retrieve_options("recaptcha");
+            $old_options = WPPlugin::retrieve_options("mjrecaptcha");
            
             if ($old_options) {
                $option_defaults['public_key'] = $old_options['pubkey']; // the public key for reCAPTCHA
@@ -160,7 +160,7 @@ if (!class_exists('reCAPTCHA')) {
         
         // register the settings
         function register_settings_group() {
-            register_setting("recaptcha_options_group", 'recaptcha_options', array(&$this, 'validate_options'));
+            register_setting("mjrecaptcha_options_group", 'mjrecaptcha_options', array(&$this, 'validate_options'));
         }
         
         // todo: make unnecessary
@@ -564,7 +564,7 @@ JS;
                 __('activate plugins', 'recaptcha') => 'activate_plugins'
             );
             
-            $this->build_dropdown('recaptcha_options[minimum_bypass_level]', $capabilities, $this->options['minimum_bypass_level']);
+            $this->build_dropdown('mjrecaptcha_options[minimum_bypass_level]', $capabilities, $this->options['minimum_bypass_level']);
         }
         
         function theme_dropdown($which) {
@@ -576,9 +576,9 @@ JS;
             );
             
             if ($which == 'comments')
-                $this->build_dropdown('recaptcha_options[comments_theme]', $themes, $this->options['comments_theme']);
+                $this->build_dropdown('mjrecaptcha_options[comments_theme]', $themes, $this->options['comments_theme']);
             else if ($which == 'registration')
-                $this->build_dropdown('recaptcha_options[registration_theme]', $themes, $this->options['registration_theme']);
+                $this->build_dropdown('mjrecaptcha_options[registration_theme]', $themes, $this->options['registration_theme']);
         }
         
         function recaptcha_language_dropdown() {
@@ -593,7 +593,7 @@ JS;
                 __('Turkish', 'recaptcha') => 'tr'
             );
             
-            $this->build_dropdown('recaptcha_options[recaptcha_language]', $languages, $this->options['recaptcha_language']);
+            $this->build_dropdown('mjrecaptcha_options[recaptcha_language]', $languages, $this->options['recaptcha_language']);
         }
     } // end class declaration
 } // end of class exists clause
