@@ -176,14 +176,12 @@ function recaptcha_check_answer ($privkey, $remoteip, $challenge, $response, $ex
 	
 	
         //discard spam submissions
-        /* 
         if ($challenge == null || strlen($challenge) == 0 || $response == null || strlen($response) == 0) {
                 $recaptcha_response = new ReCaptchaResponse();
                 $recaptcha_response->is_valid = false;
                 $recaptcha_response->error = 'incorrect-captcha-sol';
                 return $recaptcha_response;
         }
-        */
 
         $response = _recaptcha_http_post (RECAPTCHA_VERIFY_SERVER, "/challenges/verify",
                                           array (
