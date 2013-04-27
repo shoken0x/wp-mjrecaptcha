@@ -2,7 +2,7 @@
 /*
 Plugin Name: WP-MJreCAPTCHA
 Plugin URI: https://github.com/syokenz/wp-mjrecaptcha
-Description: Integrates Majang reCAPTCHA anti-spam solutions with wordpress
+Description: Integrates Mahjong reCAPTCHA anti-spam solutions with wordpress
 Version: 0.1.0
 Author: Shoken Fujisaki
 Email: mjrecaptcha@gmail.com
