@@ -50,21 +50,6 @@
                <?php $this->capabilities_dropdown(); ?>
             </td>
          </tr>
-
-         <tr valign="top">
-            <th scope="row"><?php _e('Presentation', 'recaptcha'); ?></th>
-            <td>
-               <label for="recaptcha_options[comments_theme]"><?php _e('Theme:', 'recaptcha'); ?></label>
-               <?php $this->theme_dropdown('comments'); ?>
-            </td>
-         </tr>
-
-         <tr valign="top">
-            <th scope="row"><?php _e('Tab Index', 'recaptcha'); ?></th>
-            <td>
-               <input type="text" name="recaptcha_options[comments_tab_index]" size="10" value="<?php echo $this->options['comments_tab_index']; ?>" />
-            </td>
-         </tr>
       </table>
       
       <h3><?php _e('Registration Options', 'recaptcha'); ?></h3>
@@ -74,21 +59,6 @@
             <td>
                <input type="checkbox" id ="recaptcha_options[show_in_registration]" name="recaptcha_options[show_in_registration]" value="1" <?php checked('1', $this->options['show_in_registration']); ?> />
                <label for="recaptcha_options[show_in_registration]"><?php _e('Enable for registration form', 'recaptcha'); ?></label>
-            </td>
-         </tr>
-         
-         <tr valign="top">
-            <th scope="row"><?php _e('Presentation', 'recaptcha'); ?></th>
-            <td>
-               <label for="recaptcha_options[registration_theme]"><?php _e('Theme:', 'recaptcha'); ?></label>
-               <?php $this->theme_dropdown('registration'); ?>
-            </td>
-         </tr>
-         
-         <tr valign="top">
-            <th scope="row"><?php _e('Tab Index', 'recaptcha'); ?></th>
-            <td>
-               <input type="text" name="recaptcha_options[registration_tab_index]" size="10" value="<?php echo $this->options['registration_tab_index']; ?>" />
             </td>
          </tr>
       </table>
