@@ -49,3 +49,8 @@ To install in regular WordPress and [WordPress MultiSite](http://codex.wordpress
 
 ## Frequently Asked Questions
 
+
+## Screenshot
+
+https://raw.github.com/syokenz/wp-mjrecaptcha/master/screenshot-1.png
+
