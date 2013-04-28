@@ -1,4 +1,4 @@
-## Plugin Name
+## MJ-reCAPTCHA
 
 Contributors: Shoken Fujisaki, Ken Ogino, Tetsutaro Watanabe  
 Tags: comments, registration, recaptcha, antispam, mailhide, captcha, majang  
