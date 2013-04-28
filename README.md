@@ -8,6 +8,9 @@ Stable tag: 0.1.0
   
 Integrates MJ-reCAPTCHA anti-spam methods with WordPress including comment, registration, and email spam protection.  
 
+![screenshot](http://mjrecaptcha.com/images/mjrecaptcha.png)
+
+
 ## Description
 
 MJ-reCAPTCHA is a free CAPTCHA service that helps to analayze Mahjong pais.
