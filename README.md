@@ -1,4 +1,4 @@
-## MJ-reCAPTCHA
+## wp-MJreCAPTCHA (WordPress Plugin)
 
 Contributors: Shoken Fujisaki, Ken Ogino, Tetsutaro Watanabe  
 Tags: comments, registration, recaptcha, antispam, mailhide, captcha, majang  
